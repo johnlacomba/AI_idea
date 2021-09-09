@@ -1,0 +1,20 @@
+The AI will be driven by being rewarded "happiness" by experiencing new things, producing a "thought".  With old thoughts being susceptable to a slow decay so things become novel again later.  Each thought has a number of tags associated with it.  Each AI instance can "see" in a radius around it and records the name, and position of every entity in range.
+Possible influences to the decay rate: 
+	the number of newer thoughts in the list, the tags associated with the new thought, the behavorial or goal tags of that AI instance
+Things tags could influence: 
+	happiness decay rate, amount of happiness given by all thoughts, amount of happiness given by specific thoughts to that AI instance, sight range, the rate that old thoughts decay, movement type probability, happiness adjusted when sharing a tag with an AI instance that already has it, happiness adjusted when sharing a tag with an AI instance that doesn't have it, probability of sharing information with another AI instance, happiness adjusted when giving a large amount of happiness due to an exchange of information, happiness adjusted when gaining a large amount of happiness due to an exchange of information
+What can be "thoughts" to an AI instance: 
+	an entity entering visibility range, the number of entities visible at any one time, sharing tags
+To accomplish its goals an AI instance would do one of the following: 
+	standing still, moving to a specific point in visible range, moving to a specific entity in visible range, moving to a specific entity that it remembers outside visible range, following another AI instance, and moving randomly, picking up objects, putting down objects, exchanging information with an adjacent AI instance.  It will also choose a random amount of time to follow this combination of values.  Once this time has passed it will store its current level of happiness and the combination of values that were used.
+Ways the AI could interact with its world: 
+	movement, exchange information with an adjacent AI instance, pick up or drop objects
+it could exchange the following with another AI instance: 
+	its own tags and how happy they are about each, location of one or more entities and how happy they feel about them, current destination
+When tags are exchanged in this manner the happiness value for the entity with the smaller of the two is increased by the percentage difference in the happiness value of the tags, adjusted based on any behavioral tags.
+
+
+Build AI instances with randomly generated values for the probabilities of each possible action.
+Simulate random worlds and run thousands of different iterations per world with the AI.
+Take the AI that had the highest average happiness (as well as the highest peak happiness, etc) and use these values as the seed values for the next generation.
+Repeat.
